@@ -9,6 +9,8 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // output: "export",
+  // distDir: "out",
   /* config options here */
   headers: async () => {
     return  [
