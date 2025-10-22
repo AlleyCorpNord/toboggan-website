@@ -60,6 +60,7 @@ jobs:
           commit_message: "chore(i18n): auto-translate EN blog posts to FR and ES"
           commit_user_name: toboggan-bot
           commit_user_email: bot@users.noreply.github.com
+          add_options: -A
           file_pattern: |
             app/contents/blog/fr/*.md
             app/contents/blog/es/*.md
