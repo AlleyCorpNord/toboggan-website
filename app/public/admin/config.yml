@@ -1,9 +1,11 @@
-#local_backend: true
+local_backend: true
 
 backend:
-  name: github
-  repo: AlleyCorpNord/toboggan-website
-  branch: decapcms
+  name: git-gateway
+# backend:
+#   name: github
+#   repo: AlleyCorpNord/toboggan-website
+#   branch: decapcms
 
 publish_mode: editorial_workflow
 
@@ -32,8 +34,8 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     i18n: true
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Excerpt", name: "excerpt", widget: "string" }
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Excerpt", name: "excerpt", widget: "string", i18n: true }
       - { label: "Cover Image", name: "coverImage", widget: "image" }
       - { label: "Date", name: "date", widget: "datetime", default: "{{now}}" }
       # - label: "Author"
@@ -47,4 +49,4 @@ collections:
       #   widget: "object"
       #   fields:
       #     - { label: "URL", name: "url", widget: "image" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
