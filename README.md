@@ -46,14 +46,14 @@ Each Markdown file represents an article (e.g., `YYYY-MM-DD-title.md`). Decap CM
 
 Developers focus on components and page templates; editors focus on content via Decap CMS.
 
-### Decap CMS Editorial Workflow (End-to-End)
+### Decap CMS Editorial Workflow
 
 From a workflow perspective, when an editor creates or edits an article in `/admin/index.html` with `editorial_workflow` enabled:
 
 1. **Draft created**: A new entry is saved as a draft.
 2. **Branch & PR**: Decap CMS commits to a branch(`cms/Blog/YYYY-MM-DD-slug`) and opens a Pull Request.
 3. **Preview build**: CI (e.g., Netlify/Vercel) builds a deploy preview for that PR so editors can review.
-4. **Automation**: A GitHub Action can run translation scripts (e.g., `scripts/translate-blog.js`) to generate localized copies automatically.
+4. **Automation**: A GitHub Action can run translation scripts ( `scripts/translate-blog.js`) to generate localized copies automatically.
 5. **Review & comments**: Reviewers comment on the PR; editors iterate in CMS.
 6. **Publish**: Entry is moved to Published; the PR is merged.
 7. **Go live**: The next production build includes the published content.
