@@ -1,11 +1,11 @@
-local_backend: true
+# local_backend: true
 
-backend:
-  name: git-gateway
 # backend:
-#   name: github
-#   repo: AlleyCorpNord/toboggan-website
-#   branch: decapcms
+#   name: git-gateway
+backend:
+  name: github
+  repo: AlleyCorpNord/toboggan-website
+  branch: decapcms
 
 publish_mode: editorial_workflow
 
