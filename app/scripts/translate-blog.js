@@ -94,6 +94,7 @@ async function main() {
   }
 
   const changedFilesEnv = process.env.CHANGED_FILES || "";
+  console.log("CHANGED_FILES:", splitChangedFilesEnv(changedFilesEnv));
   const changed = splitChangedFilesEnv(changedFilesEnv)
     .filter((p) => p.includes(`${path.sep}app${path.sep}contents${path.sep}blog${path.sep}en${path.sep}`));
 
