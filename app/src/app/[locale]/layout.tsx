@@ -1,5 +1,9 @@
-export const LocaleLayout = ({ children, params }: { children: React.ReactNode, params: { locale: string } }) => {
-  const { locale } = params;
+export const generateStaticParams = () => {
+  return ['en', 'fr', 'es'].map((locale) => ({ locale }));
+};
+
+const LocaleLayout = async ({ children, params }: { children: React.ReactNode, params: Promise<{ locale: string }> }) => {
+  const { locale } = await params;
   return <html lang={locale}>
     <body>{children}</body>
   </html>;
