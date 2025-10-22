@@ -22,9 +22,10 @@ function getOutputPathForLang(enPath, langCode) {
 function splitChangedFilesEnv(envValue) {
   if (!envValue) return [];
   return envValue
-    .split(".md")
+    .split(/\s+/)
     .map((s) => s.trim())
     .filter(Boolean)
+    .filter((p) => p.endsWith(".md"));
 }
 
 async function ensureDirForFile(filePath) {
@@ -94,8 +95,9 @@ async function main() {
   }
 
   const changedFilesEnv = process.env.CHANGED_FILES || "";
+  console.log("CHANGED_FILES:", splitChangedFilesEnv(changedFilesEnv));
   const changed = splitChangedFilesEnv(changedFilesEnv)
-    .filter((p) => p.includes(`${path.sep}app${path.sep}contents${path.sep}blog${path.sep}en${path.sep}`));
+    .filter((p) => p.includes(`app${path.sep}contents${path.sep}blog${path.sep}en${path.sep}`));
 
   if (changed.length === 0) {
     console.log("No changed EN markdown files. Nothing to do.");
