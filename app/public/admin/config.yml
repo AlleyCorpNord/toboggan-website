@@ -1,7 +1,9 @@
-local_backend: true
+#local_backend: true
 
 backend:
-  name: git-gateway
+  name: github
+  repo: AlleyCorpNord/toboggan-website
+  branch: decapcms
 
 media_folder: 'app/public/media' # Media files will be stored in the repo under static/media
 public_folder: '/media' # The src attribute for uploaded media will begin with /media
