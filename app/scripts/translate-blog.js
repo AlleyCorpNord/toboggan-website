@@ -23,7 +23,7 @@ function splitChangedFilesEnv(envValue) {
   if (!envValue) return [];
   return envValue
     .split(".md")
-    .map((s) => s.trim())
+    .map((s) => s.trim() + ".md")
     .filter(Boolean)
 }
 
@@ -96,7 +96,7 @@ async function main() {
   const changedFilesEnv = process.env.CHANGED_FILES || "";
   console.log("CHANGED_FILES:", splitChangedFilesEnv(changedFilesEnv));
   const changed = splitChangedFilesEnv(changedFilesEnv)
-    .filter((p) => p.includes(`${path.sep}app${path.sep}contents${path.sep}blog${path.sep}en${path.sep}`));
+    .filter((p) => p.includes(`app${path.sep}contents${path.sep}blog${path.sep}en${path.sep}`));
 
   if (changed.length === 0) {
     console.log("No changed EN markdown files. Nothing to do.");
