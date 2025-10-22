@@ -42,7 +42,7 @@ Each Markdown file represents an article (e.g., `YYYY-MM-DD-title.md`). Decap CM
 
 1. **Read content at build time**: Next.js reads Markdown files under `app/contents` with `fs.readFileSync` during the build.
 2. **Generate routes**: Pages (e.g., `[locale]/blog/[slug]`) are generated using `generateStaticParams` to create static pages per locale/slug.
-3. **Static export**: We can export a fully static site (e.g., to `out/`) suitable for static hosting. Running `npm run build` will export the static site in the `out` directory.
+3. **Static export**: We can export a fully static site suitable for static hosting. Running `npm run build` will export the static site in the `out` directory.
 
 Developers focus on components and page templates; editors focus on content via Decap CMS.
 
