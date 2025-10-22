@@ -52,7 +52,21 @@ jobs:
           TRANSLATION_MODEL: gpt-5
         run: |
           node app/scripts/translate-blog.js
-
+      
+      - name: Debug post-translation
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          git status --porcelain
+          echo "--- Diff FR ---"
+          git diff -- app/contents/blog/fr/*.md || true
+          echo "--- Diff ES ---"
+          git diff -- app/contents/blog/es/*.md || true
+      
+      - name: Stage all translation changes
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          git add -A app/contents/blog/fr app/contents/blog/es
+          
       - name: Commit and push translations
         if: steps.changed-files.outputs.any_changed == 'true'
         uses: stefanzweifel/git-auto-commit-action@v5
