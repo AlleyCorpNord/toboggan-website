@@ -28,7 +28,7 @@ jobs:
 
       - name: Install OpenAI SDK
         run: |
-          npm install openai@^4 --no-save
+          npm install openai --no-save
 
       - name: Determine changed EN markdown files
         id: changed-files

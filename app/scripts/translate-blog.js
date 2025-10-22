@@ -33,7 +33,7 @@ async function ensureDirForFile(filePath) {
 }
 
 async function translateWithOpenAI({ apiKey, model, text, targetLanguage }) {
-  const client = new OpenAI({ apiKey, baseURL: process.env.OPENAI_BASE_URL });
+  const client = new OpenAI({ apiKey });
   const system = `You are a professional translator. Translate the following Markdown blog post into ${targetLanguage}.
 
 Requirements:
@@ -41,15 +41,12 @@ Requirements:
 - Preserve all Markdown structure, headings, links, images, code blocks, and URLs. Do not translate URLs, code, or image paths.
 - Output MUST be Markdown only (no extra commentary).`;
 
-  const completion = await client.chat.completions.create({
+  const response = await client.responses.create({
     model: model || process.env.TRANSLATION_MODEL || "gpt-5",
-    messages: [
-      { role: "system", content: system },
-      { role: "user", content: text },
-    ],
-    temperature: 0.2,
+    instructions: system,
+    input: text,
   });
-  const content = completion.choices?.[0]?.message?.content;
+  const content = response.output_text;
   if (!content) throw new Error("OpenAI response missing content");
   return content;
 }
