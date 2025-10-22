@@ -22,9 +22,10 @@ function getOutputPathForLang(enPath, langCode) {
 function splitChangedFilesEnv(envValue) {
   if (!envValue) return [];
   return envValue
-    .split(".md")
-    .map((s) => s.trim() + ".md")
+    .split(/\s+/)
+    .map((s) => s.trim())
     .filter(Boolean)
+    .filter((p) => p.endsWith(".md"));
 }
 
 async function ensureDirForFile(filePath) {
