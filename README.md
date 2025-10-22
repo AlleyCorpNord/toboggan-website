@@ -6,8 +6,8 @@ This repository is a proof of concept (POC) exploring a content workflow where:
 - Developers build pages/components that consume this content in a Next.js static site generator (SSG) setup.
 - Automation can assist the workflow (e.g., GitHub Actions to auto-translate content).
 
-POC Link: https://tobogan-webiste-decap.netlify.app
-POC Admin Link: https://tobogan-webiste-decap.netlify.app/admin/index.html
+- POC Link: https://tobogan-webiste-decap.netlify.app
+- POC Admin Link: https://tobogan-webiste-decap.netlify.app/admin/index.html
 
 ### Branches and CMS Choices
 
